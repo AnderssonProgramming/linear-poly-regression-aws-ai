@@ -113,19 +113,19 @@ To deploy and run this project on AWS SageMaker:
 
 ### AWS SageMaker Execution Evidence
 
-> **TODO:** Complete this section with the required evidence.
+The successful execution of both notebooks on AWS SageMaker is documented in the following video:
+
+📹 **[aws-sagemaker-ai-notebooks-video.mp4](aws-sagemaker-ai-notebooks-video.mp4)**
+
+The video demonstrates:
+- ✅ Both notebooks open in AWS SageMaker JupyterLab
+- ✅ Successful execution of all cells (no errors)
+- ✅ Rendered plots and visualizations
+- ✅ Complete training loop outputs
 
 #### How notebooks were uploaded to SageMaker
 
 For detailed step-by-step instructions on setting up AWS SageMaker (creating domains, user profiles, JupyterLab spaces, and uploading notebooks), see the **[SageMaker Setup Guide](SAGEMAKER_SETUP.md)**.
-
-#### Screenshots
-
-- [ ] Both notebooks visible/open in SageMaker
-- [ ] Successful execution (cells run and outputs visible)
-- [ ] At least one plot rendered in SageMaker
-
-> **TODO:** Insert screenshots here.
 
 #### Comparison: Local Execution vs SageMaker Execution
 
