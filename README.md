@@ -117,7 +117,7 @@ To deploy and run this project on AWS SageMaker:
 
 #### How notebooks were uploaded to SageMaker
 
-> **TODO:** Describe the upload process here.
+For detailed step-by-step instructions on setting up AWS SageMaker (creating domains, user profiles, JupyterLab spaces, and uploading notebooks), see the **[SageMaker Setup Guide](SAGEMAKER_SETUP.md)**.
 
 #### Screenshots
 
