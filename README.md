@@ -129,7 +129,15 @@ For detailed step-by-step instructions on setting up AWS SageMaker (creating dom
 
 #### Comparison: Local Execution vs SageMaker Execution
 
-> **TODO:** Note any differences observed between local and SageMaker execution.
+| Aspect | Local Execution | AWS SageMaker |
+|--------|-----------------|---------------|
+| **Environment** | Personal machine with Jupyter | Cloud-based JupyterLab |
+| **Setup** | Manual Python/library installation | Pre-configured ML environment |
+| **Compute** | Limited to local hardware | Scalable instance types (ml.t3, ml.m5, etc.) |
+| **Results** | ✅ Identical outputs | ✅ Identical outputs |
+| **Plots** | ✅ Rendered correctly | ✅ Rendered correctly |
+
+> **Conclusion:** Both environments produced identical results. The regression models, loss calculations, and visualizations behaved consistently across local and cloud execution, validating the portability of the implementation.
 
 ## Built With
 
