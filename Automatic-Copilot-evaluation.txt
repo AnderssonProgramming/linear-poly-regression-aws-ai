@@ -1,0 +1,229 @@
+================================================================================
+AUTOMATIC COPILOT EVALUATION REPORT
+Course: Digital Transformation and Enterprise Architecture – ML Bootcamp
+Assignment: Stellar Luminosity – Linear and Polynomial Regression from First Principles
+Repository: AnderssonProgramming/linear-poly-regression-aws-ai
+Evaluation Date: 2026-03-01
+================================================================================
+
+--------------------------------------------------------------------------------
+SUMMARY
+--------------------------------------------------------------------------------
+This repository represents a thorough, well-organized implementation of linear
+and polynomial regression from first principles applied to the stellar luminosity
+problem. Both notebooks cover all required tasks – including the three mandatory
+elements in each part – with correct mathematics, clean vectorized code, and
+substantive markdown commentary. The gradient derivations are correctly stated
+and consistently applied. Feature engineering, interaction analysis, and inference
+are all present and well executed in Part II. Cloud execution evidence is provided
+via a committed mp4 video and a detailed SAGEMAKER_SETUP.md guide, but no static
+screenshots are included, which is the only notable gap relative to the assignment
+specification.
+
+--------------------------------------------------------------------------------
+GRADING BREAKDOWN (0.0 – 5.0 scale)
+--------------------------------------------------------------------------------
+
+1. Repository Structure & Compliance                             0.5 / 0.5
+   ✅ README.md present with full project description
+   ✅ Two notebooks: 01_part1_linreg_1feature.ipynb (Part I) and
+      02_part2_polyreg.ipynb (Part II)
+   ✅ Datasets defined inline inside each notebook (not loaded from files)
+   ✅ Only numpy, matplotlib (and mpl_toolkits, which is part of matplotlib)
+      are imported – no ML libraries used
+   No deductions.
+
+2. Notebook 1 – Linear Regression (One Feature)                 2.0 / 2.0
+   ✅ Task 1: Scatter plot M vs L with correct axis labels; nonlinearity
+      explicitly noted in the discussion cell.
+   ✅ Task 2: predict() and compute_cost() correctly implemented.
+      Cost uses (1/2m)·Σe² convention – mathematically valid and
+      consistent throughout the notebook.
+   ✅ Task 3 [MANDATORY – Cost Surface]: Both a 3D surface plot and a
+      contour plot are generated over a w–b grid. The interpretation cell
+      correctly explains that the minimum represents optimal parameters.
+   ✅ Task 4: Gradient formulas ∂J/∂w and ∂J/∂b correctly derived and
+      implemented in compute_gradients().
+   ✅ Task 5: Non-vectorized gradient descent with explicit for-loop over
+      samples; results compared to vectorized version and confirmed equal.
+   ✅ Task 6: Vectorized gradient descent using NumPy operations; no sample
+      loop present.
+   ✅ Task 7 [MANDATORY – Convergence]: Linear-scale and log-scale loss vs.
+      iterations plots; convergence speed and stability discussed in detail.
+   ✅ Task 8 [MANDATORY – Learning Rate Experiments]: Three learning rates
+      tested (α = 0.01, 0.1, 0.5); final w, b, and cost reported for each;
+      comparative convergence plots shown.
+   ✅ Task 9: Regression line overlaid on data; residual plot shows the
+      U-shaped pattern confirming systematic nonlinear error.
+   ✅ Task 10: Physical meaning of w (≈19 L☉/M☉ average slope) and limits
+      of linear modeling clearly articulated.
+   No deductions.
+
+3. Notebook 2 – Polynomial Regression (Two Features)            2.0 / 2.0
+   ✅ Task 1: L vs M scatter plot with temperature T encoded as both
+      color (plasma colormap) and marker size; observations on nonlinearity
+      and temperature correlation provided.
+   ✅ Task 2: build_feature_matrix() constructs [M, T], [M, T, M²], and
+      [M, T, M², M·T] design matrices using NumPy column_stack – fully
+      vectorized.
+   ✅ Feature scaling (z-score standardization) implemented and applied
+      before training, enabling stable gradient descent.
+   ✅ Task 3: predict_poly(), compute_cost_poly(), and
+      compute_gradients_poly() all implemented with vectorized NumPy
+      operations (matrix multiply, dot products).
+   ✅ Task 4: Training loop and convergence plot (linear + log scale)
+      for the full M3 model.
+   ✅ Task 5 [MANDATORY – Feature Selection]: M1, M2, M3 models trained
+      and compared; final costs, weights, and predicted-vs-actual scatter
+      plots shown; convergence comparison in a single figure.
+   ✅ Task 6 [MANDATORY – Interaction Cost Analysis]: w_MT swept over a
+      range while other parameters are fixed at trained values; parabolic
+      cost curve plotted; optimal value identified; physical interpretation
+      provided.
+   ✅ Task 7 [MANDATORY – Inference Demo]: Prediction for M=1.3 M☉,
+      T=6600 K produced; result (~3 L☉) is correctly identified as
+      physically reasonable by interpolation between training neighbors
+      (L=2.30 and L=4.10 L☉); annotated scatter plot included.
+   No deductions.
+
+4. Cloud Execution Evidence (SageMaker)                         0.4 / 0.5
+   ✅ README.md contains a dedicated SageMaker section with step-by-step
+      upload/run instructions and a local-vs-cloud comparison table.
+   ✅ SAGEMAKER_SETUP.md provides detailed domain/user-profile/JupyterLab
+      setup instructions.
+   ✅ aws-sagemaker-ai-notebooks-video.mp4 committed to the repository
+      demonstrating both notebooks open in SageMaker, all cells run, and
+      plots rendered.
+   ⚠ Deduction (-0.1): The assignment specification explicitly asks for
+      static screenshots (notebooks open in SageMaker, successful execution,
+      at least one rendered plot). The mp4 video is a stronger form of
+      evidence but cannot be evaluated inline; no .png/.jpg screenshots
+      were found in the repository.
+
+   Subtotal: 0.4 / 0.5
+
+--------------------------------------------------------------------------------
+FINAL GRADE
+--------------------------------------------------------------------------------
+Final grade: 4.9 / 5.0
+
+PASS (threshold ≥ 3.0 / 5.0)
+
+--------------------------------------------------------------------------------
+STRENGTHS
+--------------------------------------------------------------------------------
+- Complete coverage of all three mandatory elements in each notebook (cost
+  surface, convergence plot, learning rate experiments in Part I; feature
+  selection comparison, interaction cost sweep, inference demo in Part II).
+- Correct gradient mathematics throughout both notebooks; formulas match
+  the stated derivations.
+- Both vectorized and non-vectorized implementations are present in Part I,
+  and their outputs are explicitly compared and verified.
+- Feature engineering in Part II is clean and extensible; the
+  build_feature_matrix() abstraction makes the M1/M2/M3 comparison easy
+  to follow.
+- Feature scaling (z-score) applied before gradient descent, demonstrating
+  good practical understanding of numerical stability.
+- Residual plot in Part I clearly shows the non-random U-shaped pattern,
+  leading to a correct conclusion about the limits of linear modeling.
+- README.md is thorough: motivation, notation table, dataset definitions,
+  repository structure, and SageMaker execution evidence all present.
+- Detailed SAGEMAKER_SETUP.md exceeds the assignment requirements for
+  cloud documentation.
+
+--------------------------------------------------------------------------------
+ISSUES & MISSING ELEMENTS
+--------------------------------------------------------------------------------
+- No static screenshots of SageMaker execution in the repository (only a
+  video); the assignment rubric specifically requests screenshots of the
+  notebooks open in SageMaker, successful execution, and at least one plot.
+- Minor: The cost function uses the (1/2m) convention instead of the
+  (1/m) convention stated in some of the markdown cells. This is internally
+  consistent and mathematically equivalent, but creates a small discrepancy
+  between the stated formula and the implementation in Tasks 2 and 3 of
+  Part I.
+- Minor: Cell 14 of Part I (non-vectorized gradient descent) plots the
+  fitted line but the convergence curves are produced separately in later
+  cells, making the notebook flow slightly less linear for that section.
+
+--------------------------------------------------------------------------------
+TA FEEDBACK TO STUDENT
+--------------------------------------------------------------------------------
+Excellent work overall. Your implementation is correct, complete, and
+well-structured. You addressed every required element in both notebooks,
+and the quality of your explanations—especially the residual analysis in
+Part I and the interaction term interpretation in Part II—shows solid
+conceptual understanding of regression modeling.
+
+For a final polish, please add static screenshots (PNG or JPEG) to the
+repository documenting your SageMaker execution, as the assignment rubric
+asks for them explicitly. A short README section pointing to these images
+would satisfy this requirement fully.
+
+One small technical note: in Part I, check that the cost formula shown in
+your markdown cells (J = 1/n · Σe²) matches the formula in your Python
+code (which uses 1/(2m)). Both are valid conventions, but consistency
+between documentation and implementation is good engineering practice.
+
+Overall, this is a high-quality submission that demonstrates both technical
+proficiency and a genuine understanding of the machine learning concepts
+being applied.
+
+================================================================================
+AI-GENERATION ASSESSMENT (NON-GRADING – INFORMATIONAL ONLY)
+================================================================================
+This section does NOT affect the final grade.
+
+A. Qualitative Assessment
+--------------------------
+Indicators suggesting AI assistance:
+- Docstrings follow a highly uniform NumPy/Google style across all functions,
+  with consistent "Parameters / Returns" sections and identical formatting
+  patterns.
+- Markdown explanations use polished, professional phrasing with minimal
+  typographical errors or informal reasoning – unusual for graduate student
+  drafts produced under time pressure.
+- Section headers, separator lines ("=" * 60), and progress-print patterns
+  are repetitively identical across both notebooks, suggesting a templated
+  generation approach.
+- Explanations of physical phenomena (stellar physics) read as factually
+  accurate but generic, without personal references to course lectures or
+  idiosyncratic reasoning steps.
+- Abrupt depth changes: some cells provide very thorough mathematical
+  derivations (e.g., gradient derivation cell) while adjacent cells have
+  minimal commentary, which can indicate patched AI-generated blocks.
+
+Indicators of human work:
+- The SAGEMAKER_SETUP.md contains very specific, lab-environment constraints
+  (e.g., "Maximum SageMaker Notebooks: 2", LabRole IAM ARN instructions)
+  that reflect real hands-on interaction with an AWS Learner Lab account.
+- The local-vs-cloud comparison table in README.md includes environment-
+  specific observations (idle shutdown settings, instance type restrictions)
+  that align with actual AWS Learner Lab limitations.
+- The choice to produce both a 3D surface and a contour plot for the cost
+  surface, and both linear and log-scale convergence plots, suggests
+  deliberate over-delivery beyond a minimal AI prompt response.
+
+B. Quantitative Estimate
+--------------------------
+  Code:                ~65%  AI-assisted
+  Explanations/markdown: ~70%  AI-assisted
+  README / SAGEMAKER_SETUP.md: ~45%  AI-assisted
+  (Lower README estimate because setup details reflect real lab experience)
+
+C. Commentary
+--------------------------
+The notebooks show strong uniformity in style, documentation depth, and
+code structure that is characteristic of AI-assisted generation. However,
+the SageMaker setup documentation and the specificity of the cloud execution
+instructions suggest meaningful personal engagement with the platform. It is
+likely that AI tools were used to scaffold the notebook structure and
+generate initial implementations, which were then reviewed, adapted, and
+extended by the student. The quality of the final submission is high
+regardless of the tool used to produce it.
+
+This assessment is observational and does not imply misconduct.
+
+================================================================================
+END OF EVALUATION REPORT
+================================================================================
